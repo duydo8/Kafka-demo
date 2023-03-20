@@ -11,4 +11,8 @@ public class KafkaTopicConfig {
     public NewTopic topicExample(){
         return TopicBuilder.name("topicDemo").partitions(10).build();
     }
+    @Bean
+    public NewTopic topicJsonExample(){
+        return TopicBuilder.name("topicDemo_Json").partitions(10).build();
+    }
 }

@@ -18,10 +18,10 @@ public class JsonKafkaProducer {
         this.kafkaTemplate = kafkaTemplate;
     }
     public void sendMessage (User data){
-        LOGGER.info(String.format("message sent -> %s",data.toString()));
+        LOGGER.info(String.format("message sent -> %s",data));
         Message<User> message= MessageBuilder
                 .withPayload(data)
-                .setHeader(KafkaHeaders.TOPIC,"topicDemo")
+                .setHeader(KafkaHeaders.TOPIC,"topicDemo_Json")
                 .build();
         kafkaTemplate.send(message);
     }
