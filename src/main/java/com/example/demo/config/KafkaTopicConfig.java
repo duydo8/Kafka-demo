@@ -8,11 +8,12 @@ import org.springframework.kafka.config.TopicBuilder;
 @Configuration
 public class KafkaTopicConfig {
     @Bean
-    public NewTopic topicExample(){
+    public NewTopic topicExample() {
         return TopicBuilder.name("topicDemo").partitions(10).build();
     }
+
     @Bean
-    public NewTopic topicJsonExample(){
+    public NewTopic topicJsonExample() {
         return TopicBuilder.name("topicDemo_Json").partitions(10).build();
     }
 }
