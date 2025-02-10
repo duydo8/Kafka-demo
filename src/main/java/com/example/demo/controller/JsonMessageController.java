@@ -12,11 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class JsonMessageController {
     private JsonKafkaProducer jsonKafkaProducer;
-    public JsonMessageController(JsonKafkaProducer jsonKafkaProducer){
-        this.jsonKafkaProducer=jsonKafkaProducer;
+
+    public JsonMessageController(JsonKafkaProducer jsonKafkaProducer) {
+        this.jsonKafkaProducer = jsonKafkaProducer;
     }
+
     @PostMapping("/publish")
-    public ResponseEntity<?> publish(@RequestBody User user){
+    public ResponseEntity<?> publish(@RequestBody User user) {
         jsonKafkaProducer.sendMessage(user);
         return ResponseEntity.ok("JsonMessage sent to topic");
     }

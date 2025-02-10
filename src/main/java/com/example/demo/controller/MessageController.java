@@ -13,11 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class MessageController {
     @Autowired
     private KafkaProducer kafkaProducer;
-    public MessageController(KafkaProducer kafkaProducer){
-        this.kafkaProducer=kafkaProducer;
+
+    public MessageController(KafkaProducer kafkaProducer) {
+        this.kafkaProducer = kafkaProducer;
     }
+
     @GetMapping("/publish")
-    public ResponseEntity<String> publish(@RequestParam("message")String message){
+    public ResponseEntity<String> publish(@RequestParam("message") String message) {
         kafkaProducer.sendMessage(message);
         return ResponseEntity.ok("Message sent to Topic");
     }
